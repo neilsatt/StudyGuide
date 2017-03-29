@@ -76,10 +76,85 @@ a[href^="http://"]{
     text-decoration: none;
 }
 
+a[href$=".html"] {
+    text-decoration: none;
+}
 
 ---------------------------------------------------------------------------
 Substring Matching Attribute Selectors - "Contains"
 ---------------------------------------------------------------------------
+
+a[href*="downloads"] {
+    background-repeat: no-repeat;
+}
+
+img[src*="thumb"] {
+    margin: 4px;
+    border: solid 2px;
+    width: 180px;
+    height: 140px;
+}
+
+img[src*="lake"]{
+ border-color: lake;
+}
+
+-----------------------------------------------------------------------------
+Usage for these selectors
+    When a CMS or framework allows no access to HTML
+    When we are unable to add classes or IDs to element
+-----------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+Element States Pseudo-Classes
+------------------------------------------------------------------------------
+To target a disabled input element, we can write:
+
+input:disabled {
+  background-color: grey;
+}
+
+To target a radio button or checkbox when checked, we can write:
+:checked {
+  border-color: red;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #53bab3;
+}
+
+
+input[type="checkbox"]:checked + label {
+    font-weight:bold;
+}
+
+--------------------------------------------
+REVIEW
+--------------------------------------------
+
+:first-child and :last-child select the first and last children of a parent
+
+:only-child targets elements with no siblings
+
+:empty targets elements with no children or content
+
+substring matching attribute selectors match specific pieces of an attribute's value
+
+
+
+-------------------------------------------------------------------------
+:nth-child  - targets child elements based on any position inside a parent
+-------------------------------------------------------------------------
+
+target even li elements in a parent
+li:nth-child(even) {
+  background: blue;
+  color: white;
+}
+
+
+
 
 
 
