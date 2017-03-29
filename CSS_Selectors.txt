@@ -153,8 +153,17 @@ li:nth-child(even) {
   color: white;
 }
 
+li:nth-child(2n+3) -- select every 2nd list item, starting with the 3rd in the list
+
+li:nth-child(-n+3) -- select 3rd item and everything before it
 
 
+---------------------------------------------------------------------------------------------------------
+:nth-of-type - targets an element based on its position within a parent, but only if it’s a specific type of element.
+----------------------------------------------------------------------------------------------------------
+targets the 4th div inside the parent, no matter what type of child elements come before it
 
-
-
+div:nth-of-type(4) {
+  background: #52bab3;
+  color: white;
+}
