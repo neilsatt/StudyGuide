@@ -1,0 +1,85 @@
+----------------------------------------
+Selectors - Beyond the Basics
+----------------------------------------
+
+The > combinator targets a direct child of an element (child selector)
+
+The + combinator targets an element's immediate sibling (adjacent sibling)
+
+The ~ combinator targets all the specified siblings that follow an element (general siblings)
+
+// anchor elements that are direct children of a form
+form > a {
+    font-size: .7em;
+}
+
+// target button elements that immmediatly follow another btn element
+.btn + .btn {
+    margin-left: 20px;
+}
+
+
+// target immmediate sibling and every sibling that follows
+// target every sibling label element, that follows an h1
+
+h1 ~ label {
+    background: tomato;
+}
+
+REVIEW 
+Attribute selectors can target an element by any of its HTML attributes
+
+We can define specific child and sibling selectors with combinators
+
+
+-------------------------------------------------
+Attribute Selectors and Pseudo-Classes
+-------------------------------------------------
+// Targeting first and last child elements
+
+:first-child and :last:child
+
+div:first-child {
+  margin-left: 0;
+}
+
+li:last-child {
+  float: right;
+}
+
+// Targeting only-child and empty elements
+div span:only-child {
+  font-size: .5em;
+}
+
+:empty {
+  background: red;
+}
+
+:only-child {
+
+}
+
+
+
+---------------------------------------------------------------------------
+Substring Matching Attribute Selectors - "Begins With" and "Ends With"
+---------------------------------------------------------------------------
+^ tells the browser to match a piece of code that’s at the beginning of an attribute's value
+
+$ matches a piece at the end of an attribute's value
+
+* matches any part of an attribute's value
+
+a[href^="http://"]{
+    color: #52bab3;
+    text-decoration: none;
+}
+
+
+---------------------------------------------------------------------------
+Substring Matching Attribute Selectors - "Contains"
+---------------------------------------------------------------------------
+
+
+

@@ -1,0 +1,165 @@
+/* 
+User agent stylesheet - what browsers use as the default
+
+Layout wrapper/container - centers a layout:
+
+- Giving the wrapper a width prevents the layout from stretching too wide.
+
+- Setting the left and right margins to the value auto centers the wrapper in the browser.
+
+- One advantage to using <body> as the wrapper is that you don’t have to add an extra <div> in your markup to contain your layout.
+
+
+
+If you want to give your page a full background color or image, you'll need to apply it to the <html> element, 
+and you can't place any elements outside of the <body>.
+
+- Using a wrapper <div> is more appropriate if your site has elements that need to be placed outside the wrapper.
+
+Vertical Margins Collapsing
+- If there is no content, padding, or border area to interrupt two touching margins, the margins collapse to the largest of the two margin values.
+
+- You may experience margins collapsing in adjacent elements like paragraphs and divs.
+
+- If a div's bottom margin is larger than the top margin of the div below it, the margin area between the divs collapses to the largest of the two margin values.
+*/
+
+
+/* MOBILE FIRST APPROACH
+
+box-sizing: border-box - forces any padding and borders into the width and height of an element 
+instead of expanding it.
+
+Narrow to wider screens
+*/
+
+@media (min-width: 769px) {
+
+    .container {
+        width: 80%;
+        max-width: 1150px;
+        margin: 0 auto;
+    }
+
+
+}
+
+/*
+Sticky Footer - a footer that sticks to the bottom of the page regardless of the amount of 
+content on the page. 
+*/
+
+.wrap {
+    min-height: calc(100vh-89px); // viewport height, for sticky footer 
+}
+
+
+/*
+calc() writes a mathematical expression that will subtract the footer height (89px) from the viewport's total height
+
+
+When do vertical margins collapse - When there is no border, padding or content area to interrupt 
+two touching 
+
+
+
+LAYOUT WITH DISPLAY MODES
+
+Inline elements, like images, links and span tags, do not create line breaks in a layout; 
+they appear on the same line as the content and elements beside them.
+
+Block-level elements, like divs, paragraphs and headings, stack on top of each other and 
+expand to fill their parent.
+
+The browser does not apply width and height properties, or top and bottom margin settings to inline elements.
+
+An inline element will only accept left/right margins and any padding value.
+
+The display value inline-block generates an element that's like a block element but it's also flowed with surroundings as if it were an inline element.
+
+
+Setting an <a> element's display value to block lets you apply top and bottom padding values.
+
+
+REMOVING GAPS BETWEEN INLINE AND INLINE-BLOCK ELEMENTS
+
+
+-----------------------------------------------------------------------------------
+You can remove the gaps by applying a small, negative right margin to the elements:
+
+*/
+
+.main-nav li {
+    margin-right: -4px;
+}
+
+/* 
+Set font-size: 0; on the parent element. The space is a character space, so setting the font-size to zero makes the size of the space zero as well. But, you'll need to set the font size of the inline-block child elements back to your desired size.
+
+Adding an HTML comment between the inline-block elements will also remove the space
+
+
+Column layout tips:
+    	display: inline-block;
+		width: 50%; 
+		margin-right: -4px;
+		vertical-align: top;
+		padding-left: 1em; // adds gutters between columns
+		padding-right: 1em;
+
+Questions
+    What's one advantage to using inline-block over inline display?
+        You can style inline-block like block elements (w,h,t,b margins)
+
+    What usually happens between elements displayed inline or inline-block?
+        The browser interprets line breaks and spaces in the HTML as content, 
+        so it displays extra whitespace between elements
+
+    Which is true about inline elements?
+        The browser will not apply and w/h properties, or top/bottom margin settings
+
+
+PAGE LAYOUT WITH FLOATS
+
+    Floated elements are taken out of the normal flow and content wraps around them (values = left, right, and none)
+
+    A floated element is technically a block-level element (it accepts any width, height, padding or margins values), but it behaves like an inline element because it doesn't exist on a line of its own, and surrounding content flows around it.
+
+
+    FLOAT LAYOUTS
+    Horizontal Navigaton
+    We don't have to worry about the the extra whitespace that can appear when using inline 
+    or inline-block display
+
+    Floated elements will sit adjacent to each other regardless of the HTML whitespace between them
+
+    If a block-level element contains floated elements, its height collapses
+
+
+    A parent container with floated elements may not always collapse to no height at all; 
+    if the container includes a padding or height value, it'll have some visible height.
+
+    There are a two common ways to force a collapsed element to expand to the full height of its floated child elements:
+        Setting the parent element's overflow value to hidden or auto
+        Clearing the floats with a CSS pseudo-element
+
+    A clearfix fixes the collapsing issue by forcing a container to expand and contain the floated elements.
+
+// you can call 'clearfix' whatever you want. Double colon means it's a psuedo element. 
+
+*/
+
+
+.clearfix::after {
+    content: "";  // creates a blank pseudo element, at the bottom of the parent container
+    display: table; // block-level table 
+    clear: both; 
+    // both clears any collapsed space created by floats on both side of container
+    // moves it below all floated elements, prevents height from collapsing
+}
+
+
+
+    
+    
+
