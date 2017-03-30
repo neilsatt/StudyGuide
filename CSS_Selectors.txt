@@ -143,9 +143,9 @@ substring matching attribute selectors match specific pieces of an attribute's v
 
 
 
--------------------------------------------------------------------------
+---------------------------------------------------------------------------
 :nth-child  - targets child elements based on any position inside a parent
--------------------------------------------------------------------------
+---------------------------------------------------------------------------
 
 target even li elements in a parent
 li:nth-child(even) {
@@ -158,12 +158,61 @@ li:nth-child(2n+3) -- select every 2nd list item, starting with the 3rd in the l
 li:nth-child(-n+3) -- select 3rd item and everything before it
 
 
----------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
 :nth-of-type - targets an element based on its position within a parent, but only if it’s a specific type of element.
-----------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
 targets the 4th div inside the parent, no matter what type of child elements come before it
 
 div:nth-of-type(4) {
   background: #52bab3;
   color: white;
 }
+
+----------------------
+:root and :target 
+----------------------
+
+ :root selects the highest-level parent element in a document
+ 
+ :target selects an element when it's the target of a link
+ 
+ 
+ :root {
+    background: #e3effb;
+ }
+ 
+ :target {
+  color:white; /* changes color if target matches href */
+ }
+ 
+ 
+ ----------------------
+:not()
+-----------------------
+selects everything EXCEPT the element we specify
+
+// select all input elements that do NOT have a type value of button
+input:not([type="button"]) {
+  border-color: blue;
+}
+
+// every div that does not have id col-a
+div:not(#col-a) {
+ border: solid red 1px;
+}
+
+
+ -------------------------------------------------
+Pseudo-Elements - ::first-line and ::first-letter
+---------------------------------------------------
+
+Let us target the first line of text and the first character in a line of text.
+ 
+.intro:first-line {
+    font-weight:bold;
+}
+
+ -------------------------------------------------
+Pseudo-Elements - ::before and ::after
+---------------------------------------------------
+Lets us insert virtual elements before and after an element’s content
