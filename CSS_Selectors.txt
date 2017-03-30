@@ -202,7 +202,7 @@ div:not(#col-a) {
 }
 
 
- -------------------------------------------------
+-------------------------------------------------
 Pseudo-Elements - ::first-line and ::first-letter
 ---------------------------------------------------
 
@@ -216,3 +216,23 @@ Let us target the first line of text and the first character in a line of text.
 Pseudo-Elements - ::before and ::after
 ---------------------------------------------------
 Lets us insert virtual elements before and after an element’s content
+
+.jpg::before {
+    content: "url(../img/icn-picture.svg)";
+}
+
+ -------------------------------------------------
+attr() CSS Function
+---------------------------------------------------
+
+This pseudo-element rule will insert the value of an a element's title attribute after the link's content:
+
+a::after {
+  content: attr(title); /* changes the title value */
+  margin-left: 5px; 
+  
+}
+
+.d-loads a::after {
+ content: ;
+}
